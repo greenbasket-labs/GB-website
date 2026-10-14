@@ -148,6 +148,9 @@ h2{font-size:clamp(38px,4.2vw,58px);line-height:1.08;margin:19px 0 0}
 .contact-detail small{font-size:8px;letter-spacing:.14em;color:#b6c8b7;font-weight:700}
 .contact-detail a{font-size:clamp(10px,1.1vw,13px);color:#f4f7ee;word-break:break-word}
 .contact-detail a:hover{color:#c5e2b2}
+.copy-contact{align-self:flex-start;margin-top:1px;padding:0;border:0;background:transparent;color:#c5e2b2;font:600 10px var(--sans);text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.copy-contact:hover{color:#ffffff}
+.copy-contact:focus-visible{outline:2px solid #c5e2b2;outline-offset:3px;border-radius:2px}
 .detail-arrow{margin-left:auto;color:#b4d69e;font-size:17px}
 .contact-orbit{position:absolute;width:340px;height:340px;border:1px solid #ffffff15;border-radius:50%;right:-190px;bottom:-190px}
 .contact-orbit:before,.contact-orbit:after{content:"";position:absolute;border:1px solid #ffffff14;border-radius:50%;inset:28px}
