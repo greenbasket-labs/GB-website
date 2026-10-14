@@ -156,12 +156,12 @@
         <div class="contact-details">
           <div class="contact-detail">
             <span class="detail-icon" aria-hidden="true">✉</span>
-            <div><small>EMAIL US</small><a href="mailto:greenbasketgloball@gmail.com">greenbasketgloball@gmail.com</a></div>
+            <div><small>EMAIL US</small><a href="mailto:greenbasketgloball@gmail.com">greenbasketgloball@gmail.com</a><button class="copy-contact" type="button" data-copy="greenbasketgloball@gmail.com">Copy email</button></div>
             <span class="detail-arrow" aria-hidden="true">↗</span>
           </div>
           <div class="contact-detail">
             <span class="detail-icon" aria-hidden="true">⌕</span>
-            <div><small>CALL US</small><a href="tel:+2349067950038">09067950038</a></div>
+            <div><small>CALL US</small><a href="tel:+2349067950038">09067950038</a><button class="copy-contact" type="button" data-copy="09067950038">Copy phone number</button></div>
             <span class="detail-arrow" aria-hidden="true">↗</span>
           </div>
           <div class="contact-detail">
@@ -183,6 +183,29 @@
     <p>Technology for a better education.</p>
     <span class="copyright">© <span id="year">2026</span> Green Basket Global Limited</span>
   </footer>
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  document.querySelectorAll('[data-copy]').forEach((button) => {
+    button.addEventListener('click', async () => {
+      const value = button.dataset.copy;
+      try {
+        await navigator.clipboard.writeText(value);
+      } catch {
+        const temporary = document.createElement('textarea');
+        temporary.value = value;
+        temporary.setAttribute('readonly', '');
+        temporary.style.position = 'absolute';
+        temporary.style.left = '-9999px';
+        document.body.appendChild(temporary);
+        temporary.select();
+        document.execCommand('copy');
+        temporary.remove();
+      }
+      const original = button.textContent;
+      button.textContent = 'Copied!';
+      window.setTimeout(() => { button.textContent = original; }, 1600);
+    });
+  });
+</script>
 </body>
 </html>
